@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  app:
+    image: agentic-data-analysis
+    container_name: chainlit-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./temp:/app/temp
+    environment:
+      JUPYTER_HOST: "jupyter"
+    depends_on:
+      - jupyter
+    networks:
+      - docker_executor
+  jupyter:
+    image: jupyter-server
+    container_name: jupyter-server
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./temp:/app
+    networks:
+      - docker_executor
+networks:
+  docker_executor:
+    driver: bridge

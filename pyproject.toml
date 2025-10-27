@@ -1,0 +1,34 @@
+[project]
+name = "agentic-data-analysis"
+version = "1.0.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "autogen-agentchat>=0.6.2",
+    "autogen-core>=0.6.2",
+    "autogen-ext[chromadb,docker,magentic-one,openai,web-surfer, docker-jupyter-executor]>=0.6.2",
+    "chainlit>=2.7.2",
+    "mcp-server-fetch>=2025.4.7",
+    "mlflow>=3.1",
+    "openai>=1.107.1",
+    "pydantic>=2.11.7",
+    "python-dotenv>=1.1.1",
+    "tavily-python>=0.7.12",
+    "setuptools",
+    "wheel",
+]
+
+[[tool.uv.index]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+
+[tool.uv.pip]
+index-url = "https://mirrors.aliyun.com/pypi/simple/"
+
+[tool.setuptools.packages.find]
+exclude = ["data", "temp"]  # 排除 data 和 temp 目录
+
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
